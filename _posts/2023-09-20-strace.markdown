@@ -1,0 +1,9 @@
+strace -> ptrace
+
+1. ptrace: dfferent arguments
+2. how does ptrace hook syscalls
+https://blog.packagecloud.io/how-does-strace-work/
+
+syscall execution flow:
+- The SYSENTER/SYSEXIT instructions (and equivalent SYSCALL/SYSRET on AMD) enable fast entry to the kernel
+https://zhuanlan.zhihu.com/p/609245050 
