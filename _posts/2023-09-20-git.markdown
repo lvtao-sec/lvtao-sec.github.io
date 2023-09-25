@@ -3,3 +3,18 @@
 ```bash
 git submodule update --init --recursive
 ```
+
+# Email Patch
+
+```bash
+git add .
+# -s for adding the signed-off-by
+# To adding correct name and emails in the singed-off-by,
+# we have to set them by:
+# git config --global user.name "name"
+# git config --global user.email "email"
+# They are stored in the ~/.gitconfig file.
+git commit -s -m "Message"
+# format-patch generate an patch which suitable for email sending.
+git format-patch 1
+```
