@@ -18,3 +18,8 @@ git commit -s -m "Message"
 # format-patch generate an patch which suitable for email sending.
 git format-patch 1
 ```
+
+# References
+
+1. [How to generate and submit patch to Linux kernel](https://www.xcodesucks.top/articles/%E4%B8%BA%20Linux%20%E5%86%85%E6%A0%B8%E6%8F%90%E4%BA%A4%20Patch%EF%BC%9A%E6%9C%80%E7%AE%80%E5%AE%9E%E8%B7%B5.html)
+2. [How to config your sendemail info](https://www.freedesktop.org/wiki/Software/PulseAudio/HowToUseGitSendEmail/)
