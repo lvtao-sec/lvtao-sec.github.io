@@ -19,6 +19,15 @@ git commit -s -m "Message"
 git format-patch 1
 ```
 
+# Duplicate a repo with full history
+
+```sh
+git clone A-url
+cd A
+git remote add B B-url
+git push B --set-upstream HEAD:master
+```
+
 # References
 
 1. [How to generate and submit patch to Linux kernel](https://www.xcodesucks.top/articles/%E4%B8%BA%20Linux%20%E5%86%85%E6%A0%B8%E6%8F%90%E4%BA%A4%20Patch%EF%BC%9A%E6%9C%80%E7%AE%80%E5%AE%9E%E8%B7%B5.html)
