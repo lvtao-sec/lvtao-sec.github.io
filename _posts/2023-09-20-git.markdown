@@ -1,12 +1,14 @@
 
+# Basic Git Operations
 
 ```bash
 git submodule update --init --recursive
 ```
 
-# Email Patch
+# Send Patch to the mailing list
 
 ```bash
+# Add the files you want to commit
 git add .
 # -s for adding the signed-off-by
 # To adding correct name and emails in the singed-off-by,
@@ -15,11 +17,45 @@ git add .
 # git config --global user.email "email"
 # They are stored in the ~/.gitconfig file.
 git commit -s -m "Message"
-# format-patch generate an patch which suitable for email sending.
+# format-patch generates an patch named "XXX.patch" for sending
 git format-patch 1
+# Modify the patch file accordingly,
+# for example, add the description of this patch or bug between
+# "Subject" and "Signed-off-by"
+
+# Configure the ~/.gitconfig file for sending this patch like below:
+# [sendemail]
+#    smtpencryption = tls
+#    smtpserver = 
+#    smtpuser = 
+#    smtpserverport = 587
+#    tocmd = "`pwd`/scripts/get_maintainer.pl --nogit --norolestats --nol"
+#    cccmd = "`pwd`/scripts/get_maintainer.pl --nogit --norolestats --nom"
+#
+# tocmd and cccmd will automatically decide the mail receivers.
+# You can also comment out these two lines
+# and specify the receivers manually, like "--cc XXX --to XX".
+git send-email --to XXX --cc XXX XXX.patch
+# You need to enter your mailbox password in this step.
 ```
 
-# Duplicate a repo with full history
+# Reply to the Mailing Lists
+
+- If you don't need to attach code and you received the preceding email,
+just reply through your email client (e.g., webpage) in plain text mode.
+
+- Otherwise, download the mbox file and import it to your mail client.
+Or, use git send-mail to reply. See more [here](https://lore.kernel.org/bpf/20231121173206.3594040-1-tao.lyu@epfl.ch/).
+
+```bash
+    git send-email \
+    --in-reply-to=20231121173206.3594040-1-tao.lyu@epfl.ch \
+    --to=XXX \
+    --cc=XXX \
+    /path/to/YOUR_REPLY
+```
+
+# Duplicate a Repo with Full History
 
 ```sh
 git clone A-url
@@ -33,3 +69,4 @@ git push B --set-upstream HEAD:master
 1. [How to generate and submit patch to Linux kernel](https://www.xcodesucks.top/articles/%E4%B8%BA%20Linux%20%E5%86%85%E6%A0%B8%E6%8F%90%E4%BA%A4%20Patch%EF%BC%9A%E6%9C%80%E7%AE%80%E5%AE%9E%E8%B7%B5.html)
 2. [How to config your sendemail info](https://www.freedesktop.org/wiki/Software/PulseAudio/HowToUseGitSendEmail/)
 3. [How to apply patches from the Linux Kernel Mailing List](https://blog.reds.ch/?p=1814)
+4. [Reply instruction](https://lore.kernel.org/bpf/20231121173206.3594040-1-tao.lyu@epfl.ch/)
