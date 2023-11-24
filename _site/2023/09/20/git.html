@@ -1,0 +1,75 @@
+
+<h1 id="basic-git-operations">Basic Git Operations</h1>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git submodule update <span class="nt">--init</span> <span class="nt">--recursive</span>
+</code></pre></div></div>
+
+<h1 id="send-patch-to-the-mailing-list">Send Patch to the mailing list</h1>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Add the files you want to commit</span>
+git add <span class="nb">.</span>
+<span class="c"># -s for adding the signed-off-by</span>
+<span class="c"># To adding correct name and emails in the singed-off-by,</span>
+<span class="c"># we have to set them by:</span>
+<span class="c"># git config --global user.name "name"</span>
+<span class="c"># git config --global user.email "email"</span>
+<span class="c"># They are stored in the ~/.gitconfig file.</span>
+git commit <span class="nt">-s</span> <span class="nt">-m</span> <span class="s2">"Message"</span>
+<span class="c"># format-patch generates an patch named "XXX.patch" for sending</span>
+git format-patch 1
+<span class="c"># Modify the patch file accordingly,</span>
+<span class="c"># for example, add the description of this patch or bug between</span>
+<span class="c"># "Subject" and "Signed-off-by"</span>
+
+<span class="c"># Configure the ~/.gitconfig file for sending this patch like below:</span>
+<span class="c"># [sendemail]</span>
+<span class="c">#    smtpencryption = tls</span>
+<span class="c">#    smtpserver = </span>
+<span class="c">#    smtpuser = </span>
+<span class="c">#    smtpserverport = 587</span>
+<span class="c">#    tocmd = "`pwd`/scripts/get_maintainer.pl --nogit --norolestats --nol"</span>
+<span class="c">#    cccmd = "`pwd`/scripts/get_maintainer.pl --nogit --norolestats --nom"</span>
+<span class="c">#</span>
+<span class="c"># tocmd and cccmd will automatically decide the mail receivers.</span>
+<span class="c"># You can also comment out these two lines</span>
+<span class="c"># and specify the receivers manually, like "--cc XXX --to XX".</span>
+git send-email <span class="nt">--to</span> XXX <span class="nt">--cc</span> XXX XXX.patch
+<span class="c"># You need to enter your mailbox password in this step.</span>
+</code></pre></div></div>
+
+<h1 id="reply-to-the-mailing-lists">Reply to the Mailing Lists</h1>
+
+<ul>
+  <li>
+    <p>If you don’t need to attach code and you received the preceding email,
+just reply through your email client (e.g., webpage) in plain text mode.</p>
+  </li>
+  <li>
+    <p>Otherwise, download the mbox file and import it to your mail client.
+Or, use git send-mail to reply. See more <a href="https://lore.kernel.org/bpf/20231121173206.3594040-1-tao.lyu@epfl.ch/">here</a>.</p>
+  </li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    git send-email <span class="se">\</span>
+    <span class="nt">--in-reply-to</span><span class="o">=</span>20231121173206.3594040-1-tao.lyu@epfl.ch <span class="se">\</span>
+    <span class="nt">--to</span><span class="o">=</span>XXX <span class="se">\</span>
+    <span class="nt">--cc</span><span class="o">=</span>XXX <span class="se">\</span>
+    /path/to/YOUR_REPLY
+</code></pre></div></div>
+
+<h1 id="duplicate-a-repo-with-full-history">Duplicate a Repo with Full History</h1>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone A-url
+<span class="nb">cd </span>A
+git remote add B B-url
+git push B <span class="nt">--set-upstream</span> HEAD:master
+</code></pre></div></div>
+
+<h1 id="references">References</h1>
+
+<ol>
+  <li><a href="https://www.xcodesucks.top/articles/%E4%B8%BA%20Linux%20%E5%86%85%E6%A0%B8%E6%8F%90%E4%BA%A4%20Patch%EF%BC%9A%E6%9C%80%E7%AE%80%E5%AE%9E%E8%B7%B5.html">How to generate and submit patch to Linux kernel</a></li>
+  <li><a href="https://www.freedesktop.org/wiki/Software/PulseAudio/HowToUseGitSendEmail/">How to config your sendemail info</a></li>
+  <li><a href="https://blog.reds.ch/?p=1814">How to apply patches from the Linux Kernel Mailing List</a></li>
+  <li><a href="https://lore.kernel.org/bpf/20231121173206.3594040-1-tao.lyu@epfl.ch/">Reply instruction</a></li>
+</ol>

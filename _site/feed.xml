@@ -1,3 +1,151 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-09-02T17:18:24+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Tao’s Homepage</title><subtitle></subtitle><entry><title type="html">Memory Consistency &amp;amp; Cache Coherence</title><link href="http://localhost:4000/jekyll/update/2023/09/02/welcome-to-jekyll.html" rel="alternate" type="text/html" title="Memory Consistency &amp;amp; Cache Coherence" /><published>2023-09-02T16:00:09+02:00</published><updated>2023-09-02T16:00:09+02:00</updated><id>http://localhost:4000/jekyll/update/2023/09/02/welcome-to-jekyll</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2023/09/02/welcome-to-jekyll.html"><![CDATA[<h1 id="memory-consistency--cache-coherence">Memory Consistency &amp; Cache Coherence</h1>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-11-24T19:51:49+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Tao’s Homepage</title><subtitle></subtitle><entry><title type="html">Concurrency</title><link href="http://localhost:4000/2023/11/24/concurrency.html" rel="alternate" type="text/html" title="Concurrency" /><published>2023-11-24T00:00:00+01:00</published><updated>2023-11-24T00:00:00+01:00</updated><id>http://localhost:4000/2023/11/24/concurrency</id><content type="html" xml:base="http://localhost:4000/2023/11/24/concurrency.html"><![CDATA[<h1 id="lamport-clock-and-vector-clock">Lamport clock and vector clock</h1>
+
+<h1 id="concurrency-bugs">Concurrency bugs</h1>
+<ul>
+  <li>data races, atomicity violation, order violation, …</li>
+</ul>
+
+<h1 id="memory-model">Memory model</h1>]]></content><author><name></name></author><summary type="html"><![CDATA[Lamport clock and vector clock]]></summary></entry><entry><title type="html">Git</title><link href="http://localhost:4000/2023/09/20/git.html" rel="alternate" type="text/html" title="Git" /><published>2023-09-20T00:00:00+02:00</published><updated>2023-09-20T00:00:00+02:00</updated><id>http://localhost:4000/2023/09/20/git</id><content type="html" xml:base="http://localhost:4000/2023/09/20/git.html"><![CDATA[<h1 id="basic-git-operations">Basic Git Operations</h1>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git submodule update <span class="nt">--init</span> <span class="nt">--recursive</span>
+</code></pre></div></div>
+
+<h1 id="send-patch-to-the-mailing-list">Send Patch to the mailing list</h1>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Add the files you want to commit</span>
+git add <span class="nb">.</span>
+<span class="c"># -s for adding the signed-off-by</span>
+<span class="c"># To adding correct name and emails in the singed-off-by,</span>
+<span class="c"># we have to set them by:</span>
+<span class="c"># git config --global user.name "name"</span>
+<span class="c"># git config --global user.email "email"</span>
+<span class="c"># They are stored in the ~/.gitconfig file.</span>
+git commit <span class="nt">-s</span> <span class="nt">-m</span> <span class="s2">"Message"</span>
+<span class="c"># format-patch generates an patch named "XXX.patch" for sending</span>
+git format-patch 1
+<span class="c"># Modify the patch file accordingly,</span>
+<span class="c"># for example, add the description of this patch or bug between</span>
+<span class="c"># "Subject" and "Signed-off-by"</span>
+
+<span class="c"># Configure the ~/.gitconfig file for sending this patch like below:</span>
+<span class="c"># [sendemail]</span>
+<span class="c">#    smtpencryption = tls</span>
+<span class="c">#    smtpserver = </span>
+<span class="c">#    smtpuser = </span>
+<span class="c">#    smtpserverport = 587</span>
+<span class="c">#    tocmd = "`pwd`/scripts/get_maintainer.pl --nogit --norolestats --nol"</span>
+<span class="c">#    cccmd = "`pwd`/scripts/get_maintainer.pl --nogit --norolestats --nom"</span>
+<span class="c">#</span>
+<span class="c"># tocmd and cccmd will automatically decide the mail receivers.</span>
+<span class="c"># You can also comment out these two lines</span>
+<span class="c"># and specify the receivers manually, like "--cc XXX --to XX".</span>
+git send-email <span class="nt">--to</span> XXX <span class="nt">--cc</span> XXX XXX.patch
+<span class="c"># You need to enter your mailbox password in this step.</span>
+</code></pre></div></div>
+
+<h1 id="reply-to-the-mailing-lists">Reply to the Mailing Lists</h1>
+
+<ul>
+  <li>
+    <p>If you don’t need to attach code and you received the preceding email,
+just reply through your email client (e.g., webpage) in plain text mode.</p>
+  </li>
+  <li>
+    <p>Otherwise, download the mbox file and import it to your mail client.
+Or, use git send-mail to reply. See more <a href="https://lore.kernel.org/bpf/20231121173206.3594040-1-tao.lyu@epfl.ch/">here</a>.</p>
+  </li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    git send-email <span class="se">\</span>
+    <span class="nt">--in-reply-to</span><span class="o">=</span>20231121173206.3594040-1-tao.lyu@epfl.ch <span class="se">\</span>
+    <span class="nt">--to</span><span class="o">=</span>XXX <span class="se">\</span>
+    <span class="nt">--cc</span><span class="o">=</span>XXX <span class="se">\</span>
+    /path/to/YOUR_REPLY
+</code></pre></div></div>
+
+<h1 id="duplicate-a-repo-with-full-history">Duplicate a Repo with Full History</h1>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone A-url
+<span class="nb">cd </span>A
+git remote add B B-url
+git push B <span class="nt">--set-upstream</span> HEAD:master
+</code></pre></div></div>
+
+<h1 id="references">References</h1>
+
+<ol>
+  <li><a href="https://www.xcodesucks.top/articles/%E4%B8%BA%20Linux%20%E5%86%85%E6%A0%B8%E6%8F%90%E4%BA%A4%20Patch%EF%BC%9A%E6%9C%80%E7%AE%80%E5%AE%9E%E8%B7%B5.html">How to generate and submit patch to Linux kernel</a></li>
+  <li><a href="https://www.freedesktop.org/wiki/Software/PulseAudio/HowToUseGitSendEmail/">How to config your sendemail info</a></li>
+  <li><a href="https://blog.reds.ch/?p=1814">How to apply patches from the Linux Kernel Mailing List</a></li>
+  <li><a href="https://lore.kernel.org/bpf/20231121173206.3594040-1-tao.lyu@epfl.ch/">Reply instruction</a></li>
+</ol>]]></content><author><name></name></author><summary type="html"><![CDATA[Basic Git Operations]]></summary></entry><entry><title type="html">Strace</title><link href="http://localhost:4000/2023/09/20/strace.html" rel="alternate" type="text/html" title="Strace" /><published>2023-09-20T00:00:00+02:00</published><updated>2023-09-20T00:00:00+02:00</updated><id>http://localhost:4000/2023/09/20/strace</id><content type="html" xml:base="http://localhost:4000/2023/09/20/strace.html"><![CDATA[<p>strace -&gt; ptrace</p>
+
+<ol>
+  <li>ptrace: dfferent arguments</li>
+  <li>how does ptrace hook syscalls
+https://blog.packagecloud.io/how-does-strace-work/</li>
+</ol>
+
+<p>syscall execution flow:</p>
+<ul>
+  <li>The SYSENTER/SYSEXIT instructions (and equivalent SYSCALL/SYSRET on AMD) enable fast entry to the kernel
+https://zhuanlan.zhihu.com/p/609245050</li>
+</ul>]]></content><author><name></name></author><summary type="html"><![CDATA[strace -&gt; ptrace]]></summary></entry><entry><title type="html">Consistency</title><link href="http://localhost:4000/2023/09/09/consistency.html" rel="alternate" type="text/html" title="Consistency" /><published>2023-09-09T00:00:00+02:00</published><updated>2023-09-09T00:00:00+02:00</updated><id>http://localhost:4000/2023/09/09/consistency</id><content type="html" xml:base="http://localhost:4000/2023/09/09/consistency.html"><![CDATA[<h1 id="the-essence-of-consistency">The Essence of Consistency</h1>
+
+<p>The concept of consistency has been applied to various domains,
+e.g., the shared-memory multiprocessor and
+distributed storage/memory systems.
+Its <strong>essence</strong> is the defintion of predictable read/write behaviors
+in both sequential or concurrent executions.
+In other words, it is about the ordering among reads/writes.</p>
+
+<p>We can categorize the consistency concept
+according to the read/write object into two kinds:</p>
+
+<ul>
+  <li>
+    <p><em>Read/Write on one object</em>:
+The data written by which write will be returned to a read.</p>
+  </li>
+  <li>
+    <p><em>Read/Write on different object</em>:</p>
+  </li>
+</ul>
+
+<h1 id="instances-of-consistency">Instances of Consistency</h1>
+
+<h2 id="a-shared-memory-multiprocessor">A Shared-memory Multiprocessor</h2>
+
+<ul>
+  <li>
+    <p><em>Read/Write on one object</em>: Cache -&gt; cache coherence -&gt; MESI</p>
+  </li>
+  <li>
+    <p><em>Read/Write on different object</em>: Memory model</p>
+  </li>
+</ul>
+
+<p>‵‵</p>
+
+<h2 id="distributed-memory-or-storage">Distributed Memory or Storage</h2>
+
+<ul>
+  <li>
+    <p>Replicas -&gt; Replica consistency -&gt; PAXOS, RAFT</p>
+  </li>
+  <li>
+    <p>Reorder when persisting</p>
+  </li>
+</ul>
+
+<h2 id="crash-inconsistency">Crash Inconsistency</h2>
+
+<h1 id="references">References</h1>
+
+<p>[1] https://www.cs.utexas.edu/~bornholt/post/memory-models.html</p>
+
+<p>[2] https://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf</p>
+
+<p>[3] http://www.cs.toronto.edu/~pekhimenko/courses/csc2231-f17/Papers/SequentialConsistency.pdf</p>]]></content><author><name></name></author><summary type="html"><![CDATA[The Essence of Consistency]]></summary></entry><entry><title type="html">Memory Consistency &amp;amp; Cache Coherence</title><link href="http://localhost:4000/jekyll/update/2023/09/02/welcome-to-jekyll.html" rel="alternate" type="text/html" title="Memory Consistency &amp;amp; Cache Coherence" /><published>2023-09-02T16:00:09+02:00</published><updated>2023-09-02T16:00:09+02:00</updated><id>http://localhost:4000/jekyll/update/2023/09/02/welcome-to-jekyll</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2023/09/02/welcome-to-jekyll.html"><![CDATA[<h1 id="memory-consistency--cache-coherence">Memory Consistency &amp; Cache Coherence</h1>
 
 <p>Introudciton to it</p>]]></content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html"><![CDATA[Memory Consistency &amp; Cache Coherence]]></summary></entry></feed>

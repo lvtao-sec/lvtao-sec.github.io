@@ -1,0 +1,57 @@
+<h1 id="the-essence-of-consistency">The Essence of Consistency</h1>
+
+<p>The concept of consistency has been applied to various domains,
+e.g., the shared-memory multiprocessor and
+distributed storage/memory systems.
+Its <strong>essence</strong> is the defintion of predictable read/write behaviors
+in both sequential or concurrent executions.
+In other words, it is about the ordering among reads/writes.</p>
+
+<p>We can categorize the consistency concept
+according to the read/write object into two kinds:</p>
+
+<ul>
+  <li>
+    <p><em>Read/Write on one object</em>:
+The data written by which write will be returned to a read.</p>
+  </li>
+  <li>
+    <p><em>Read/Write on different object</em>:</p>
+  </li>
+</ul>
+
+<h1 id="instances-of-consistency">Instances of Consistency</h1>
+
+<h2 id="a-shared-memory-multiprocessor">A Shared-memory Multiprocessor</h2>
+
+<ul>
+  <li>
+    <p><em>Read/Write on one object</em>: Cache -&gt; cache coherence -&gt; MESI</p>
+  </li>
+  <li>
+    <p><em>Read/Write on different object</em>: Memory model</p>
+  </li>
+</ul>
+
+<p>‵‵</p>
+
+<h2 id="distributed-memory-or-storage">Distributed Memory or Storage</h2>
+
+<ul>
+  <li>
+    <p>Replicas -&gt; Replica consistency -&gt; PAXOS, RAFT</p>
+  </li>
+  <li>
+    <p>Reorder when persisting</p>
+  </li>
+</ul>
+
+<h2 id="crash-inconsistency">Crash Inconsistency</h2>
+
+<h1 id="references">References</h1>
+
+<p>[1] https://www.cs.utexas.edu/~bornholt/post/memory-models.html</p>
+
+<p>[2] https://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf</p>
+
+<p>[3] http://www.cs.toronto.edu/~pekhimenko/courses/csc2231-f17/Papers/SequentialConsistency.pdf</p>
