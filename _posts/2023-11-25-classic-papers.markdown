@@ -1,7 +1,29 @@
 # Concurrency and distributed systems
 
 # Formal methods
+
+- [Lectures of model checking](https://web.stanford.edu/class/cs357/lecture12.pdf)
 - [Dynamic Partial-Order Reduction for Model Checking Software](https://users.soe.ucsc.edu/~cormac/papers/popl05.pdf)
+- [Partial-Order Methods for the Veri cation of Concurrent Systems](https://patricegodefroid.github.io/public_psfiles/thesis.pdf)
+    > 
+    > Model checking is an approach to exploring states
+    in an model abstracted from implementations for checking
+    the conformance to the specification/properties.
+    Here the model can be in different froms, such as,
+    finite state machine with S: states, T: transitions.
+    >
+    > Due to the need of exploring all states, it faces state explosion.
+    Especially in the concurrent systems, the partial orders between
+    concurrent transitions make the search space larger.
+    To solve this problem,
+    previous works proposed **statically** and **dynamically**
+    partial order reduction,
+    which skips exploring different order os transitions
+    which are independent.
+    >
+    > Statically: persistent set, sleep set (**TODO**)
+    >
+    > Dynamically: 
 
 # File systems
 
