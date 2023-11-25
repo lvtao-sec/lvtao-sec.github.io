@@ -44,3 +44,5 @@ The data written by which write will be returned to a read.
 [2] https://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf
 
 [3] http://www.cs.toronto.edu/~pekhimenko/courses/csc2231-f17/Papers/SequentialConsistency.pdf 
+
+[4] https://zhuanlan.zhihu.com/p/55767485

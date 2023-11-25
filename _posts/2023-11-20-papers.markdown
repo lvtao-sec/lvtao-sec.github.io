@@ -27,4 +27,12 @@
 
 # File systems
 
+- [A Casefor RedundantArrays of InexpensiveDisks (RAID)](https://www.cs.cmu.edu/~garth/RAIDpaper/Patterson88.pdf)
+
 # Linux kernel
+
+
+# Virtualization
+
+- [Writing a hypervisor from sctratch](https://rayanfam.com/tutorials/)
+- Book: Hardware and Software Support for Virtualization
