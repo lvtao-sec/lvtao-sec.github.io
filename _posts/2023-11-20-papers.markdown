@@ -36,3 +36,8 @@
 
 - [Writing a hypervisor from sctratch](https://rayanfam.com/tutorials/)
 - Book: Hardware and Software Support for Virtualization
+
+# Kernel bypass
+
+- Junction
+- DPDK

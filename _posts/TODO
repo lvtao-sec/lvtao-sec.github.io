@@ -1,0 +1,3 @@
+data structures: radix tree, red-black tree
+
+distributed locks: coarse-grained locks: chubby and zookeeper, fine-grained locks: VAX.VMS DLM
