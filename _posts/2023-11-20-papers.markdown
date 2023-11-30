@@ -56,3 +56,4 @@
 - SymGX: Detecting Cross-boundary Pointer Vulnerabilities of SGX Applications via Static Symbolic Execution
 - HODOR: Shrinking Attack Surface on Node.js via System Call Limitation
 - Secure and Timely GPU Execution in Cyber-physical Systems
+- SysPart: Automated Temporal System Call Filtering for Binaries
