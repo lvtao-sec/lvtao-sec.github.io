@@ -1,4 +1,8 @@
 # Concurrency and distributed systems
+- Lamport and vector clocks represents partial orders of events in distributed systems.
+- Lamport clock can only show the order of events when you know they have a causality (i.e., happens-before relation). But vector clocks can show 1) whether two events are causally related and 2) if so, what their order is.
+
+[1]. [Lamport and vector clock](https://lotabout.me/2022/Lamport-Clock-and-Vector-Clock/)
 
 # Formal methods
 
@@ -25,12 +29,22 @@
     >
     > Dynamically: 
 
-# File systems
+# File systems / Storage
 
 - [A Casefor RedundantArrays of InexpensiveDisks (RAID)](https://www.cs.cmu.edu/~garth/RAIDpaper/Patterson88.pdf)
 
-# Linux kernel
+http://www.ssdfans.com/?p=8210
+https://blog.csdn.net/fengxiaocheng/article/details/103258791
+https://www.cnblogs.com/zhangsanlisi411/articles/16751546.html
 
+PCIe consists of:
+- Memory space: the physical address of memory space can be directly mapped to virtuall address and accessed by load and store instructions.
+- IO space:
+
+
+# Linux kernel / OS kernel
+- [rCore-Tutorial-Book: unix-like OS written in Rust](https://rcore-os.cn/rCore-Tutorial-Book-v3/index.html)
+- [Eliminating Receive Livelock in an Interrupt-driven Kernel](https://cs.nyu.edu/~mwalfish/classes/ut/f09-cs395t/ref/mogul96usenix.pdf)
 
 # Virtualization
 
@@ -57,3 +71,15 @@
 - HODOR: Shrinking Attack Surface on Node.js via System Call Limitation
 - Secure and Timely GPU Execution in Cyber-physical Systems
 - SysPart: Automated Temporal System Call Filtering for Binaries
+
+# Architecture
+
+- RISC/CISC, SoC, bus, north birdge, sourth bridge or I/O Controller Hub (ICH) or a Platform Controller Hub (PCH)
+
+[1]. https://www.intel.com/content/dam/www/public/us/en/documents/white-papers/ia-introduction-basics-paper.pdf
+
+# Performance
+
+- Latency:
+- Throughout:
+- Bandwidth:
