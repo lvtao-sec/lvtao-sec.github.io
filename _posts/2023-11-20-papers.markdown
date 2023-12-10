@@ -4,6 +4,18 @@
 
 [1]. [Lamport and vector clock](https://lotabout.me/2022/Lamport-Clock-and-Vector-Clock/)
 
+- Synchronization primitives
+    - [Memory barrier](https://www.alibabacloud.com/blog/memory-model-and-synchronization-primitive---part-1-memory-barrier_597460)
+    - [Data race and race condition](https://blog.regehr.org/archives/490)
+        - Data race: two concurrent memory access and one of them is a write.
+        - Race condition: application-level atomicity
+
+- [Fault -> error -> failure](https://tropars.github.io/downloads/lectures/Cloud/Cloud--Failures.pdf)
+    - Fault: the root cause of the errors and failures.
+    - Error: if the system doesn't correctly handle a fault, it would turn out as an error.
+    - Failure: at the overall level, you get the unexpected result from a system.
+    - For example, you inject a network partition *fault* in a DFS. However, the system doesn't have enough machanism to process it (error), and finally leading to a split-brain problem. Thus the users would retrieve inconsistent (unexpected) data from the DFS (failure).
+
 # Formal methods
 
 - [Lectures of model checking](https://web.stanford.edu/class/cs357/lecture12.pdf)
@@ -36,6 +48,13 @@
 http://www.ssdfans.com/?p=8210
 https://blog.csdn.net/fengxiaocheng/article/details/103258791
 https://www.cnblogs.com/zhangsanlisi411/articles/16751546.html
+
+- Storage organization types
+    - Block storage : Store data in fixed-length blocks without any other informations.
+    - Object storage : Metadata and data of objects are organized in a flat view. It's more suitable for scenarios that there are no hierarchy relationship among data.
+    - File storage : Files, as units, are organized in a hierarchy.
+
+- NAS: network-attached storage
 
 PCIe consists of:
 - Memory space: the physical address of memory space can be directly mapped to virtuall address and accessed by load and store instructions.
