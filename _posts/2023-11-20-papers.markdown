@@ -1,10 +1,12 @@
 # Concurrency and distributed systems
-- Lamport and vector clocks represents partial orders of events in distributed systems.
-- Lamport clock can only show the order of events when you know they have a causality (i.e., happens-before relation). But vector clocks can show 1) whether two events are causally related and 2) if so, what their order is.
 
-[1]. [Lamport and vector clock](https://lotabout.me/2022/Lamport-Clock-and-Vector-Clock/)
+- [Logic clocks](https://lotabout.me/2022/Lamport-Clock-and-Vector-Clock/)
+    - Logic clock: number counters
+    - Lamport and vector clocks represents partial orders (not total order, have no idea about the orders among some events) of events in distributed systems.
+    - Lamport clock: one counter at each node. If two events (e.g., A sending and B receiving) have a causality (i.e., happens-before relation), thus clock(A) < clock(B). However, given clock(A) < clock(B), we cannot say A happens before B, as the clock increases even if there is no synchronization among nodes.
+    - Vector clock is design for that weakness of lamport clock. N counters at each node, and each of counters represent the last syncrhonized state of one node. It can conclude that A happens before B if clock(A) < clock(B), which means every counter of A is smaller than B's.
 
-- Synchronization primitives
+- Concurrency issues and synchronization primitives
     - [Memory barrier](https://www.alibabacloud.com/blog/memory-model-and-synchronization-primitive---part-1-memory-barrier_597460)
     - [Data race and race condition](https://blog.regehr.org/archives/490)
         - Data race: two concurrent memory access and one of them is a write.
@@ -14,7 +16,7 @@
     - Fault: the root cause of the errors and failures.
     - Error: if the system doesn't correctly handle a fault, it would turn out as an error.
     - Failure: at the overall level, you get the unexpected result from a system.
-    - For example, you inject a network partition *fault* in a DFS. However, the system doesn't have enough machanism to process it (error), and finally leading to a split-brain problem. Thus the users would retrieve inconsistent (unexpected) data from the DFS (failure).
+    - For example, there is a network partition *fault* in a DFS. However, the system doesn't have enough machanism to process it (error), and finally leading to a split-brain problem. Thus the users would retrieve inconsistent (unexpected) data from the DFS (failure).
 
 # Formal methods
 
