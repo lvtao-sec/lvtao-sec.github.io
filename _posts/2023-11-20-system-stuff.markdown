@@ -77,6 +77,7 @@ PCIe consists of:
 
 - [Writing a hypervisor from sctratch](https://rayanfam.com/tutorials/)
 - Book: Hardware and Software Support for Virtualization
+- [Core slicing: closing the gap between leaky confidential VMs and bare-metal cloud](https://www.usenix.org/conference/osdi23/presentation/zhou-ziqiao)
 
 # Kernel bypass
 
