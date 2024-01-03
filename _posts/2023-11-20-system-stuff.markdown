@@ -78,6 +78,13 @@ PCIe consists of:
 - [Writing a hypervisor from sctratch](https://rayanfam.com/tutorials/)
 - Book: Hardware and Software Support for Virtualization
 - [Core slicing: closing the gap between leaky confidential VMs and bare-metal cloud](https://www.usenix.org/conference/osdi23/presentation/zhou-ziqiao)
+- [How is rdtsc implemented in KVM guest?](https://www.yunweiku.com/thread-155834-1-1.html)
+
+    - Constant TSC: ensures that the duration of each clock tick is uniform and supports the use of the TSC as a wall clock timer even if the processor core changes frequency. however it does change on C state.
+    - Invariant TSC: runs at a constant rate in all ACPI P-, C-. and T- states.
+    - Non-stop TSC: has the properties of both Constant and Invariant TSC.
+    - Why the KVM TSC offset keeps changing: the constant TSC frequency might change in C state, so KVM need to adjust it accordingly with the geust TSC frequency.
+    - Advanced Configuration and Power Interface (ACPI) TODO???
 
 # Kernel bypass
 
