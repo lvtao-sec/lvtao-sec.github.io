@@ -57,7 +57,7 @@
     - Traverse the search space represented by the model
         - Space explosion -> state pruning algorithoms
     - Checking if states satisfy requirements.
-
+    - Difference with symbolic executions:
 
 # File systems / Storage
 
