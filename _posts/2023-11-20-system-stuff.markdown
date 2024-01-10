@@ -51,10 +51,11 @@
 
 - Model checking
     - Model a system with specific methods
-    - Traverse the search space represented by the model
         - Hardware -> finite state machine
         - Concurrency applications -> transition systems
         - Distributed systems -> asynchronous message passing model or distributed shared memory (DSM)
+    - Traverse the search space represented by the model
+        - Space explosion -> state pruning algorithoms
     - Checking if states satisfy requirements.
 
 
