@@ -49,6 +49,15 @@
     >
     > Dynamically: 
 
+- Model checking
+    - Model a system with specific methods
+    - Traverse the search space represented by the model
+        - Hardware -> finite state machine
+        - Concurrency applications -> transition systems
+        - Distributed systems -> asynchronous message passing model or distributed shared memory (DSM)
+    - Checking if states satisfy requirements.
+
+
 # File systems / Storage
 
 - [A Casefor RedundantArrays of InexpensiveDisks (RAID)](https://www.cs.cmu.edu/~garth/RAIDpaper/Patterson88.pdf)
