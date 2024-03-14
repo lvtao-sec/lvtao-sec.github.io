@@ -59,6 +59,16 @@
     - Checking if states satisfy requirements.
     - Difference with symbolic executions:
 
+# Programming languages
+
+- Declarative language
+    - E.g., SQL, HTML and CSS.
+    - Functional programming: TODO
+
+- Imperative languages
+    - C, C++, Java, Javascript, BASIC, Python, Ruby, and most other programming languages are imperative. As a rule, if it has explicit loops (for, while, repeat) that change variables with explicit assignment operations at each loop, then it's imperative.
+    - [ref](https://stackoverflow.com/questions/10925689/functional-programming-vs-declarative-programming-vs-imperative-programming)
+
 # File systems / Storage
 
 - [A Casefor RedundantArrays of InexpensiveDisks (RAID)](https://www.cs.cmu.edu/~garth/RAIDpaper/Patterson88.pdf)
