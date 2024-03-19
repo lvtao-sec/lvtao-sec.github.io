@@ -59,6 +59,8 @@
     - Checking if states satisfy requirements.
     - Difference with symbolic executions:
 
+- [Rosette: Synthesis and Verification for All](https://www.youtube.com/watch?v=KpDyuMIb_E0&list=PLZdCLR02grLp4W4ySd1sHPOsK83gvqBQp&index=26)
+
 # Programming languages
 
 - Declarative language
