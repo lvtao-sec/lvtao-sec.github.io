@@ -31,6 +31,7 @@
     - Serializability is used in database. It is the gold standard in isolation, the I in ACID. A system that guarantees serializability is able to process transactions concurrently, but guarantees that the final result is equivalent to what would have happened if each transaction was processed individually, one after other (as if there were no concurrency).[^1][^2]
 
     [^1] http://www.bailis.org/blog/linearizability-versus-serializability/
+    
     [^2] https://fauna.com/blog/serializability-vs-strict-serializability-the-dirty-secret-of-database-isolation-levels
 
 # Formal methods
@@ -138,11 +139,20 @@ PCIe consists of:
 - Secure and Timely GPU Execution in Cyber-physical Systems
 - SysPart: Automated Temporal System Call Filtering for Binaries
 
-# Architecture
+# Architecture/hardware
 
 - RISC/CISC, SoC, bus, north birdge, sourth bridge or I/O Controller Hub (ICH) or a Platform Controller Hub (PCH)
 
 [1]. https://www.intel.com/content/dam/www/public/us/en/documents/white-papers/ia-introduction-basics-paper.pdf
+
+- **Memory model** defines the expected ordering among memory load/store for an given sequential code, which is affected by compilers and processors.
+    - Compiler reordering: compilers optimize non-modified variables and reorder the codes without any data-dependency, which leads issues to the concurrent programs. The keyword *Volatile* is used to prevent such aggresive optimizations.
+    - Processor reordering:
+        - instruction reodering
+        - memory cache
+        - barrier, fence (https://stackoverflow.com/questions/50323347/how-many-memory-barriers-instructions-does-an-x86-cpu-have)
+
+    ![CPU arch](../figs/cpu-arch.png)
 
 # Performance
 
