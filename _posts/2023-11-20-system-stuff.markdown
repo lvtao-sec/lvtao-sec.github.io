@@ -24,6 +24,15 @@
     - **Fail-safe**: the component is safe in the face of failure, but might get performance degradation, e.g., fail-slow failure, meta-stable failure, scalability failure.
     - **Fail-soft**: leads to functionality degradation.
 
+- [Consistency model]
+    - Consistency model can only define the non-overlapped read/write events.
+    - Strong consistency = linerizability: every read can retrieve the latest write. In other words, there is exactly one order between events. The write orders are the read orders. And there order are consistency with their real-time order.
+    - Sequential consistency: as long as the reads from multiple nodes/processes are in the same order, even if they are opsite with the write orders.
+    - Serializability is used in database. It is the gold standard in isolation, the I in ACID. A system that guarantees serializability is able to process transactions concurrently, but guarantees that the final result is equivalent to what would have happened if each transaction was processed individually, one after other (as if there were no concurrency).[^1][^2]
+
+    [^1] http://www.bailis.org/blog/linearizability-versus-serializability/
+    [^2] https://fauna.com/blog/serializability-vs-strict-serializability-the-dirty-secret-of-database-isolation-levels
+
 # Formal methods
 
 - [Lectures of model checking](https://web.stanford.edu/class/cs357/lecture12.pdf)
