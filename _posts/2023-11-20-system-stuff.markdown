@@ -123,36 +123,57 @@ PCIe consists of:
 - Junction
 - DPDK
 
-# Unread from CCS2023
-
-- Put Your Memory in Order: Efficient Domain-based Memory Isolation for WASM Applications
-- Improving Security Tasks Using Compiler Provenance Information Recovered At the Binary-Level
-- SyzDirect: Directed Greybox Fuzzing for Linux Kernel
-- Formalizing, Verifying and Applying ISA Security Guarantees as Universal Contracts
-- PANIC: PAN-assisted Intra-process Memory Isolation on ARM
-- SpecVerilog: Adapting Information Flow Control for Secure Speculation
-- Assume but Verify: Deductive Verification of Leaked Information in Concurrent Applications
-- The Locality of Memory Checking
-- PyRTFuzz: Detecting Bugs in Python Runtimes via Two-Level Collaborative Fuzzing
-- SymGX: Detecting Cross-boundary Pointer Vulnerabilities of SGX Applications via Static Symbolic Execution
-- HODOR: Shrinking Attack Surface on Node.js via System Call Limitation
-- Secure and Timely GPU Execution in Cyber-physical Systems
-- SysPart: Automated Temporal System Call Filtering for Binaries
-
 # Architecture/hardware
 
+- A classic figure of general CPU arch
+
+## Basic concepts
+
 - RISC/CISC, SoC, bus, north birdge, sourth bridge or I/O Controller Hub (ICH) or a Platform Controller Hub (PCH)
+- 
+- [1]. https://www.intel.com/content/dam/www/public/us/en/documents/white-papers/ia-introduction-basics-paper.pdf
 
-[1]. https://www.intel.com/content/dam/www/public/us/en/documents/white-papers/ia-introduction-basics-paper.pdf
+## IO devices and PCIe
 
-- **Memory model** defines the expected ordering among memory load/store for an given sequential code, which is affected by compilers and processors.
-    - Compiler reordering: compilers optimize non-modified variables and reorder the codes without any data-dependency, which leads issues to the concurrent programs. The keyword *Volatile* is used to prevent such aggresive optimizations.
-    - Processor reordering:
-        - instruction reodering
-        - memory cache
-        - barrier, fence (https://stackoverflow.com/questions/50323347/how-many-memory-barriers-instructions-does-an-x86-cpu-have)
+- PCIe
+- IOMMU and DMA
 
-    ![CPU arch](../figs/cpu-arch.png)
+## Memory (consistency) model
+
+- The **memory consistency model** of a shared memory **processor** specifies how the memory system will appear to the programmer[1]. In other words, it specifies how the loads/stores on exclusive/shared memory behavior.
+- The **most intuitive memory model** is sequential consistency, that is, every memory operations are executed in some sequential orders, seed detailed definition below. However, that is not performant, thus, several techniques are proposed to relax the memory model to improve the performance.
+- **Where and how are memory models (load/store behaviors) affected?**
+  - Reorder program orders (for both uniprocessors and multiprocessors)
+    - Compiler: reordering of independent operations (operations on different memory objects) from a single thread view.
+    - CPU: such as, pipeline, which is not completely reorder, but they are overlapped.
+  - Cache (hardware level, only for multiprocessors)
+    - Load/store buffer
+    - CPU cache (L1, L2, LLC)
+    - Invalid queue
+  - Others
+    - Load a memory into a register and no re-load happens for following loads.
+
+<img src="../figs/cpu-arch.png" alt="drawing" width="800"/>
+
+- **Types of memory models**
+  - Most strict and intuitive memory model: sequential consistency
+    - Memory operations of all processors are executed in some sequential orders (execute one after another) and memory operations of individual processor appear in that sequence in the order specified by its program (i.e., *program order*).
+  - Relaxed memory (consistency) model
+    - Relaxation comes from two points
+      - Relax program order among memory operations on different memory objects in individual processors.
+      - Relax write atomicity, that is, if a read can return before the writes are visible to all processors.
+    - Case study: total-store-order (TSO) [2]
+      - Reorder between a write and its followed read.
+      - A read can only return on its own cached write but on others.
+- Memory barriers
+  - Instructions
+  - C library
+  - barrier, fence (https://stackoverflow.com/questions/50323347/how-many-memory-barriers-instructions-does-an-x86-cpu-have)
+- Bug detection on memory orders
+  - [OFence: Pairing Barriers to Find Concurrency Bugs in the Linux Kernel](https://inria.hal.science/hal-04109096/file/Eurosys_2023___Barriers__Final_.pdf)
+- References
+  - [1] [shared memory consistency models: A Tutorial](https://www.cs.cmu.edu/afs/cs/academic/class/15740-f18/www/papers/ieeemicro96-adve-consistency.pdf)
+  - [2] [x86-TSO: A Rigorous and Usable Programmer’s Model for x86 Multiprocessors](https://www.cl.cam.ac.uk/~pes20/weakmemory/cacm.pdf)
 
 # Performance
 
