@@ -153,7 +153,7 @@ PCIe consists of:
   - Others
     - Load a memory into a register and no re-load happens for following loads.
 
-<img src="../figs/cpu-arch.png" alt="drawing" width="800"/>
+<img src="../../../figs/cpu-arch.png" alt="drawing" width="800"/>
 
 - **Types of memory models**
   - Most strict and intuitive memory model: sequential consistency
