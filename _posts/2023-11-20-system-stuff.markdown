@@ -138,6 +138,13 @@ PCIe consists of:
 - PCIe
 - IOMMU and DMA
 
+## Pipeline and hyper-threads
+
+- Pipeline
+- Out-of-order execution
+- Speculative execution
+- Cycles
+
 ## Memory (consistency) model
 
 - The **memory consistency model** of a shared memory **processor** specifies how the memory system will appear to the programmer[1]. In other words, it specifies how the loads/stores on exclusive/shared memory behavior.
@@ -174,6 +181,8 @@ PCIe consists of:
 - References
   - [1] [shared memory consistency models: A Tutorial](https://www.cs.cmu.edu/afs/cs/academic/class/15740-f18/www/papers/ieeemicro96-adve-consistency.pdf)
   - [2] [x86-TSO: A Rigorous and Usable Programmer’s Model for x86 Multiprocessors](https://www.cl.cam.ac.uk/~pes20/weakmemory/cacm.pdf)
+  - [3] [A Tutorial Introduction to the ARM and POWER Relaxed Memory Models](https://www.cl.cam.ac.uk/~pes20/ppc-supplemental/test7.pdf)
+  - [4] [A Formal Model of Linux-Kernel Memory Ordering](https://mirrors.edge.kernel.org/pub/linux/kernel/people/paulmck/LWNLinuxMM/)
 
 # Performance
 
