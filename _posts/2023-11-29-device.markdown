@@ -1,5 +1,0 @@
-# I/O Devices
-
-- DMA & IO-MMU: https://cloud.tencent.com/developer/article/1792378
-
-- CXL: https://blog.csdn.net/u014443578/article/details/125680569
