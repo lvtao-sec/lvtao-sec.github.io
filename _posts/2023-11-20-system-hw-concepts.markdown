@@ -1,3 +1,8 @@
+---
+layout: default
+title: Paper Reading Summary
+---
+
 # Concurrency and distributed systems
 
 - [Logic clocks](https://lotabout.me/2022/Lamport-Clock-and-Vector-Clock/)
