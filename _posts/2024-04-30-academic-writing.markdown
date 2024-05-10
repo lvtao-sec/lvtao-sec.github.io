@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Paper Reading Summary
+title: Academic Writing
 ---
 
 # Latex

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Paper Reading Summary
+title: System and Hardware Concepts
 ---
 
 # Concurrency and distributed systems
