@@ -1,15 +1,17 @@
 ---
 layout: default
-title: Paper Reading Summary
+title: Tech and Tool Commands
 ---
 
-# Basic Git Operations
+# Git
+
+## Basic Git Operations
 
 ```bash
 git submodule update --init --recursive
 ```
 
-# Send Patch to the mailing list
+## Send Patch to the mailing list
 
 ```bash
 # Add the files you want to commit
@@ -59,7 +61,7 @@ Or, use git send-mail to reply. See more [here](https://lore.kernel.org/bpf/2023
     /path/to/YOUR_REPLY
 ```
 
-# Duplicate a Repo with Full History
+## Duplicate a Repo with Full History
 
 ```sh
 git clone A-url
@@ -68,9 +70,49 @@ git remote add B B-url
 git push B --set-upstream HEAD:master
 ```
 
-# References
+## References
 
 1. [How to generate and submit patch to Linux kernel](https://www.xcodesucks.top/articles/%E4%B8%BA%20Linux%20%E5%86%85%E6%A0%B8%E6%8F%90%E4%BA%A4%20Patch%EF%BC%9A%E6%9C%80%E7%AE%80%E5%AE%9E%E8%B7%B5.html)
 2. [How to config your sendemail info](https://www.freedesktop.org/wiki/Software/PulseAudio/HowToUseGitSendEmail/)
 3. [How to apply patches from the Linux Kernel Mailing List](https://blog.reds.ch/?p=1814)
 4. [Reply instruction](https://lore.kernel.org/bpf/20231121173206.3594040-1-tao.lyu@epfl.ch/)
+
+
+# How to resize a qcow2 image?
+
+```bash
+# Enable NBD on the Host
+modprobe nbd max_part=8
+
+# Connect the QCOW2 as network block device
+qemu-nbd --connect=/dev/nbd0 /var/lib/vz/images/100/vm-100-disk-1.qcow2
+
+# Find The Virtual Machine Partitions
+fdisk /dev/nbd0 -l
+
+# Mount the partition from the VM
+mount /dev/nbd0 /mnt/somepoint/
+
+# After you done, unmount and disconnect
+umount /mnt/somepoint/
+
+# Resize the file system
+e2fsck -f /dev/nbd0
+resize2fs /dev/nbd0 9G
+
+# gparted
+gparted /dev/nbd0
+
+qemu-nbd --disconnect /dev/nbd0
+
+# qcow2 resize
+qemu-img resize disk.qcow2 --shrink 9G
+
+# You have to use convert to get rid of the shrinked empty parts
+qemu-img convert -p -f qcow2 focal.qcow2 -O qcow2 new-focal.qcow2
+
+rmmod nbd
+```
+
+- [Mount qcow2 as a network block device](https://gist.github.com/shamil/62935d9b456a6f9877b5)
+- [Resize a qcow2 on Linux](https://linuxconfig.org/how-to-resize-a-qcow2-disk-image-on-linux)
