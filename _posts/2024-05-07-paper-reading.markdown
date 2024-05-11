@@ -20,3 +20,9 @@ title: Paper Reading Summary
 
 
 # Architecture
+
+
+
+# TOREAD
+
+- [DepFast: Orchestrating Code of Quorum Systems](https://www.usenix.org/system/files/atc22-luo.pdf)
