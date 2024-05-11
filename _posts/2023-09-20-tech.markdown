@@ -80,6 +80,40 @@ git push B --set-upstream HEAD:master
 
 # How to resize a qcow2 image?
 
+Qcow2 image resize includes extention and shrink.
+
+## Extention
+
+To extend a qcow2 image, you need to shutdown your virtual machine and resize the qcow2 image first.
+After that, the size of storage devices inside the virtual machine increase.
+However, the size of formatted file system on these devices still unchanged.
+You have to use `resize2fs` to tell the file system adjust its size.
+
+```bash
+qemu-img resize image.qcow2 +10G
+resize2fs /dev/sda
+```
+
+- [Resize Qcow2 disk image](https://uwot.eu/blog/resize-qcow2-disk-image/)
+
+
+## Shrink
+
+To shrink a qcow2 image, you need to boot your virtual machine and resize the file system on the devices,
+followed by the qcow2 image shrink after the VM shutdown.
+
+However, if you are going to shrink from the root partition, which is an EXT file system , on the qcow2 image,
+it becomes problematic, as EXT4 doesn't support online resize.
+You have to unmount the EXT4 file system and then you can resize it.
+
+To that end, there are two sulutions,
+temporally creating an in-memory root file system and pivot root to it,
+or operating on the file system using Network Block Device (NBD) supported by `qemu-nbd` on the host.
+
+### Pivot_root
+
+### qemu-nbd
+
 ```bash
 # Enable NBD on the Host
 modprobe nbd max_part=8
