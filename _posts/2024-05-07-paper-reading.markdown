@@ -25,6 +25,7 @@ title: Paper Reading Summary
 
 # TOREAD
 
+- [Flipping Bits in Memory Without Accessing Them: An Experimental Study of DRAM Disturbance Errors](https://users.ece.cmu.edu/~yoonguk/papers/kim-isca14.pdf)
 - [Stall-Time Fair Memory Access Scheduling for Chip Multiprocessors](https://people.inf.ethz.ch/omutlu/pub/stfm_micro07.pdf)
 - [Reducing Memory Interference in Multicore Systems via Application-Aware Memory Channel Partitioning](https://people.inf.ethz.ch/omutlu/pub/memory-channel-partitioning-micro11.pdf)
 - [Memory Performance Attacks:Denial of Memory Service in Multi-Core Systems](https://users.ece.cmu.edu/~omutlu/pub/mph_usenix_security07.pdf)
