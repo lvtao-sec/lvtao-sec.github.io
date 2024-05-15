@@ -107,6 +107,11 @@ PCIe consists of:
 
 
 # Linux kernel / OS kernel
+
+## Macro/Micro/Exo kernels
+
+- kernel extension: flexibility (customization)
+
 - [rCore-Tutorial-Book: unix-like OS written in Rust](https://rcore-os.cn/rCore-Tutorial-Book-v3/index.html)
 - [Eliminating Receive Livelock in an Interrupt-driven Kernel](https://cs.nyu.edu/~mwalfish/classes/ut/f09-cs395t/ref/mogul96usenix.pdf)
 
