@@ -98,13 +98,27 @@ https://www.cnblogs.com/zhangsanlisi411/articles/16751546.html
     - Block storage : Store data in fixed-length blocks without any other informations.
     - Object storage : Metadata and data of objects are organized in a flat view. It's more suitable for scenarios that there are no hierarchy relationship among data.
     - File storage : Files, as units, are organized in a hierarchy.
-
 - NAS: network-attached storage
 
-PCIe consists of:
-- Memory space: the physical address of memory space can be directly mapped to virtuall address and accessed by load and store instructions.
-- IO space:
+- PCIe
 
+- Storage/Memory Hierarchy
+
+    | Hierarchy         | Storage Technique                  | Bus   | Interface to CPUs    | Speed |
+    | ----------------- | ---------------------------------- | ----- | -------------------- | ----- |
+    | Register          | -                                  |       | -                    |       |
+    | Cache             | SRAM                               |       | -                    |       |
+    | Main Memory       | DRAM                               | DIMM  | DDR3/4/5             |       |
+    | Persistent Memory | Optane (aka 3D-Xpoint), Flash NAND | DIMM* | DDR3/4/5             |       |
+    | Flash Disk        | Flash NAND                         | PCIe* | NVMe (based on PCIe) |       |
+    | Traditional Disk  | Magnetic disk                      | AHCI* | SATA                 |       |
+
+    - See [CPU arch](#Architecture/hardware) to know the buses.
+    - *Dual In-Line Memory Module (DIMM)
+    - *Peripheral Component Interconnect Express (PCIe)
+    - *Advanced Host Controller Interface (AHCI)
+    - Reference
+      - [Modern Storage Hierarchy: From NAND SSD to *3D XPoint* (*Optane*) PM](https://www.josehu.com/technical/2021/01/01/ssd-to-optane.html)
 
 # Linux kernel / OS kernel
 
@@ -120,13 +134,15 @@ PCIe consists of:
 - [Writing a hypervisor from sctratch](https://rayanfam.com/tutorials/)
 - Book: Hardware and Software Support for Virtualization
 - [Core slicing: closing the gap between leaky confidential VMs and bare-metal cloud](https://www.usenix.org/conference/osdi23/presentation/zhou-ziqiao)
-- [How is rdtsc implemented in KVM guest?](https://www.yunweiku.com/thread-155834-1-1.html)
 
-    - Constant TSC: ensures that the duration of each clock tick is uniform and supports the use of the TSC as a wall clock timer even if the processor core changes frequency. however it does change on C state.
-    - Invariant TSC: runs at a constant rate in all ACPI P-, C-. and T- states.
-    - Non-stop TSC: has the properties of both Constant and Invariant TSC.
-    - Why the KVM TSC offset keeps changing: the constant TSC frequency might change in C state, so KVM need to adjust it accordingly with the geust TSC frequency.
-    - Advanced Configuration and Power Interface (ACPI) TODO???
+## [How is rdtsc implemented in KVM guest?](https://www.yunweiku.com/thread-155834-1-1.html)
+
+- Constant TSC: ensures that the duration of each clock tick is uniform and supports the use of the TSC as a wall clock timer even if the processor core changes frequency. however it does change on C state.
+- Invariant TSC: runs at a constant rate in all ACPI P-, C-. and T- states.
+- Non-stop TSC: has the properties of both Constant and Invariant TSC.
+- **Why the KVM TSC offset keeps changing?** 
+  - The constant TSC frequency might change in C state, so KVM need to adjust it accordingly with the geust TSC frequency.
+- Advanced Configuration and Power Interface (ACPI) TODO???
 
 # Kernel bypass
 
@@ -135,12 +151,20 @@ PCIe consists of:
 
 # Architecture/hardware
 
+- Before 2012, CPU + two chips design (north-bridge Memory-control Hub (MCH) and south bridge I/O Control Hub (ICH))
+- After, MCH is integrated into the CPU
 - A classic figure of general CPU arch
 
 ## Basic concepts
 
 - RISC/CISC, SoC, bus, north birdge, sourth bridge or I/O Controller Hub (ICH) or a Platform Controller Hub (PCH)
-- 
+- Root complex: Connect between CPU, memory, and PCIe devices
+- Root complex includes DMA module
+- The root complex generates transaction requests on behalf of the CPU. In response to CPU commands, it generates configuraion, memory and IO requests as well as locked transaction requests on the PCI Express fabric.
+- Modern CPUs don't have a *system bus* (except hidden within the  CPU itself). They have memory channels, PCIe root ports, and a DMI port  that connects to the chipset (also called the peripheral controller hub, or PCH). The PCH contains additional devices and may have additional  root ports. The root complex comprises circuitry integrated into both  the CPU and PCH. (Some CPU SoCs don't have DMI or a PCH, and all the  root complex circuitry is within the CPU SoC.)
+- https://www.mindshare.com/files/resources/MindShare_Intro_to_PCIe.pdf
+- http://www.bi2.com.cn/biancheng/64.html
+- https://blog.csdn.net/qq_37344125/article/details/136903500
 - [1]. https://www.intel.com/content/dam/www/public/us/en/documents/white-papers/ia-introduction-basics-paper.pdf
 
 ## IO devices and PCIe
