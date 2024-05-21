@@ -22,7 +22,7 @@ twitter_username:
 github_username:
 
 # Build settings
-markdown: kramdown
+markdown: CommonMarkGhPages
 theme: minima
 plugins:
   - jekyll-feed
