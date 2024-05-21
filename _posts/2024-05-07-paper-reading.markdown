@@ -61,13 +61,14 @@ title: Paper Reading Summary
 
 - Direct Memory Translation for Virtualized Clouds
     <details>
-    > Instead of translating a virtual memory address to physical address with a multiple-level page walk,
-    >
-    > DMT directly maps a Virtual Memory Area to a continuous physical memory area with additional hardware registers.
-    >
-    > Shortcomings:
-    >
-    > - Applications aggressively allocating memory can lead to fragmented, unused, and waste physical memory.
+    <summary>Hello</summary>
+    <pre>
+
+     Instead of translating a virtual memory address to physical address with a multiple-level page walk,
+     DMT directly maps a Virtual Memory Area to a continuous physical memory area with additional hardware registers.
+     Shortcomings:    
+     - Applications aggressively allocating memory can lead to fragmented, unused, and waste physical memory.
+    </pre>
     </details>
 
 - GMT: GPU Orchestrated Memory Tiering for the Big Data Era
