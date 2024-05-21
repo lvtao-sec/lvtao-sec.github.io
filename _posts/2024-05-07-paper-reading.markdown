@@ -60,7 +60,7 @@ title: Paper Reading Summary
 - Skip It: Take Control of Your Cache!
 
 - Direct Memory Translation for Virtualized Clouds
-
+    <details>
     > Instead of translating a virtual memory address to physical address with a multiple-level page walk,
     >
     > DMT directly maps a Virtual Memory Area to a continuous physical memory area with additional hardware registers.
@@ -68,6 +68,7 @@ title: Paper Reading Summary
     > Shortcomings:
     >
     > - Applications aggressively allocating memory can lead to fragmented, unused, and waste physical memory.
+    </details>
 
 - GMT: GPU Orchestrated Memory Tiering for the Big Data Era
 
