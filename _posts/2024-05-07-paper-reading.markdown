@@ -36,18 +36,47 @@ title: Paper Reading Summary
 # ASPLOS24 TOREAD
 
 - Last-Level Cache Side-Channel Attacks Are Feasible in the Modern Public Cloud
+
 - Flexible Non-intrusive Dynamic Instrumentation for WebAssembly
+
 - Lightweight Fault Isolation: Practical, Efficient, and Secure Software Sandboxing
+
 - λFS: A Scalable and Elastic Distributed File System Metadata Service using Serverless Functions
+
 - Predict; Don't React for Enabling Efficient Fine-Grain DVFS in GPUs
+
 - Formal Mechanised Semantics of CHERI C: Capabilities, Undefined Behaviour, and Provenance
+
 - Verifying Rust Implementation of Page Tables in a Software Enclave Hypervisor
+
 - Merlin: Multi-tier Optimization of eBPF Code for Performance and Compactness
+    > Follow up work to K2.
+    >
+    > Implement a LLVM pass to rewrite IR regarding two high-level optimization rules:
+    >
+    > - Instruction merging
+    > - Replace expensive operations with cheap ones, such as replacing multiplication with shifting.
+    
 - Skip It: Take Control of Your Cache!
+
 - Direct Memory Translation for Virtualized Clouds
+
+    > Instead of translating a virtual memory address to physical address with a multiple-level page walk,
+    >
+    > DMT directly maps a Virtual Memory Area to a continuous physical memory area with additional hardware registers.
+    >
+    > Shortcomings:
+    >
+    > - Applications aggressively allocating memory can lead to fragmented, unused, and waste physical memory.
+
 - GMT: GPU Orchestrated Memory Tiering for the Big Data Era
+
 - BypassD: Enabling fast userspace access to shared SSDs
+
 - AERO: Adaptive Erase Operation for Improving Lifetime and Performance of Modern NAND Flash-Based SSDs
+
 - A Journey of a 1,000 Kernels Begins with a Single Step: A Retrospective of Deep Learning on GPUs
+
 - Thesios: Synthesizing Accurate Counterfactual I/O Traces from I/O Samples
+
 - Everywhere All at Once: Co-Location Attacks on Public Cloud FaaS
