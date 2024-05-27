@@ -58,18 +58,16 @@ title: Paper Reading Summary
     > - Replace expensive operations with cheap ones, such as replacing multiplication with shifting.
     
 - Skip It: Take Control of Your Cache!
+    > 
+    > Tools: Chipyard, Rocket and BOOM core, TileLink, Hardware langauge Chisel
+    > What's Enzian for?
+    > Synchronous and asynchronous writebacks (flush and clean) ?
 
 - Direct Memory Translation for Virtualized Clouds
-    <details>
-    <summary>Hello</summary>
-    <pre>
-
-     Instead of translating a virtual memory address to physical address with a multiple-level page walk,
-     DMT directly maps a Virtual Memory Area to a continuous physical memory area with additional hardware registers.
-     Shortcomings:    
-     - Applications aggressively allocating memory can lead to fragmented, unused, and waste physical memory.
-    </pre>
-    </details>
+    > Instead of translating a virtual memory address to physical address with a multiple-level page walk,
+    > DMT directly maps a Virtual Memory Area to a continuous physical memory area with additional hardware registers.
+    > Shortcomings:    
+    > - Applications aggressively allocating memory can lead to fragmented, unused, and waste physical memory.
 
 - GMT: GPU Orchestrated Memory Tiering for the Big Data Era
 
