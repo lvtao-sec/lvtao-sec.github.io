@@ -21,6 +21,13 @@ title: Paper Reading Summary
 
 - [Facebook’s Tectonic Filesystem: Efficiency from Exascale](https://www.usenix.org/system/files/fast21-pan.pdf)
 
+## Kernel extension
+
+- [VINO: Dealing With Disaster: Surviving Misbehaved Kernel Extensions](https://www.usenix.org/conference/osdi-96/dealing-disaster-surviving-misbehaved-kernel-extensions)
+- [Extensibility, Safety and Performance in the SPIN Operating System](https://cseweb.ucsd.edu/~savage/papers/Sosp95.pdf)
+- [Singularity: Rethinking the Software Stack](https://courses.cs.washington.edu/courses/cse551/15sp/papers/singularity-osr07.pdf)
+- [Syrup: User-Defined Scheduling Across the Stack](http://stanford.edu/~kkaffes/papers/syrup.pdf)
+
 # Security
 
 
