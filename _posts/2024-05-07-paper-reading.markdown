@@ -9,9 +9,15 @@ title: Paper Reading Summary
 
 - [Split-Level I/O Scheduling](https://dl.acm.org/doi/pdf/10.1145/2815400.2815421), SOSP'16
 
-  > [Split-Level I/O Scheduling](https://dl.acm.org/doi/pdf/10.1145/2815400.2815421), SOSP'16
+    > [Split-Level I/O Scheduling](https://dl.acm.org/doi/pdf/10.1145/2815400.2815421), SOSP'16
 
-- XX
+- [Octopus: an RDMA-enabled Distributed Persistent Memory File System](http://storage.cs.tsinghua.edu.cn/papers/atc17-octopus.pdf/)
+
+    > The bottleneck of distributed file systems:
+    > - SSD + ethernet: slow device latency (ms)
+    > - PM + RDMA (InfiniBand): ?? why does GlusterMEM have low throughput ??
+
+    > Is single-node server or mutiple? Consistency? Fault tolerance (replicas)? Comparison with CephFS?
 
 
 
