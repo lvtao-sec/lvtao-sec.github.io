@@ -19,7 +19,7 @@ title: Paper Reading Summary
 
     > Is single-node server or mutiple? Consistency? Fault tolerance (replicas)? Comparison with CephFS?
 
-
+- [Facebook’s Tectonic Filesystem: Efficiency from Exascale](https://www.usenix.org/system/files/fast21-pan.pdf)
 
 # Security
 
