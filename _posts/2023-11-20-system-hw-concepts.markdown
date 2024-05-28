@@ -170,7 +170,36 @@ https://www.cnblogs.com/zhangsanlisi411/articles/16751546.html
 ## IO devices and PCIe
 
 - PCIe
-- IOMMU and DMA
+
+### IOMMU and DMA
+
+Data transfer between memory and hardware subsystems execept for CPU takes much CPU cycles,
+such as data transfer between peripheral devices and memory.
+Although this problem can be solved with more CPU cores,
+there should be more efficient solutions, i.e., Direct memory access (DMA).
+DMA directly transfer data between hardware subsystems and memory without the interference of CPUs.
+In this case, CPUs are saved for other complex computations
+while the customized, less complex and thus fast hardware---DMA---takes care of (can be regarded as "accelerators") transfering data.
+
+// TODO
+Bus, DMA controller, DMA engine. 
+[ref: An overview of direct memory access](https://geidav.wordpress.com/2014/04/27/an-overview-of-direct-memory-access/)
+
+// TODO
+cache coherence of DMA: https://www.quora.com/Can-a-DMA-engine-read-from-the-cache-What-are-the-pros-and-cons-of-this-approach
+
+**The impact of DMA On CPU---The memory bus contention between DMA and CPU**:
+There is less memory bus contention between DMA and CPU because:
+- Instructions are prefetched and not every instruction accesses memory, such as arithmetics on registers. [ref](https://electronics.stackexchange.com/questions/212254/does-a-cpu-completely-freeze-when-using-a-dma)
+- CPU caches can minimize the number of memory accesses.
+
+
+IOMMU: https://www.kernel.org/doc/Documentation/DMA-API-HOWTO.txt
+For virtualization and limit the memory access of devices
+
+https://www.spiceworks.com/tech/hardware/articles/direct-memory-access/
+
+https://www.intel.com/content/www/us/en/developer/articles/technical/memory-in-dpdk-part-2-deep-dive-into-iova.html
 
 ## Pipeline and hyper-threads
 
