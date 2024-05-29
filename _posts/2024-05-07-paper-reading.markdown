@@ -3,23 +3,36 @@ layout: default
 title: Paper Reading Summary
 ---
 
-# Operating system
+# Operating System
 
-## File systems
+## Local File Systems
 
 - [Split-Level I/O Scheduling](https://dl.acm.org/doi/pdf/10.1145/2815400.2815421), SOSP'16
 
     > [Split-Level I/O Scheduling](https://dl.acm.org/doi/pdf/10.1145/2815400.2815421), SOSP'16
 
+
+## Distributed file systems
+
 - [Octopus: an RDMA-enabled Distributed Persistent Memory File System](http://storage.cs.tsinghua.edu.cn/papers/atc17-octopus.pdf/)
 
     > The bottleneck of distributed file systems:
     > - SSD + ethernet: slow device latency (ms)
-    > - PM + RDMA (InfiniBand): ?? why does GlusterMEM have low throughput ??
-
-    > Is single-node server or mutiple? Consistency? Fault tolerance (replicas)? Comparison with CephFS?
+    > - PM + RDMA (InfiniBand): Many data duplications among layers.
+    >
+    > - Data plane:
+    >   - Directly access servers' PMs from clients to reduce data duplication times. 
+    >   - Concurrent access are protected by locking with GCC-provided primitives at servers
+    >   and unlocking at clients through RDMA atomic instructions.
+    >
+    > - Metadata plane:
+    >   - two-phase commit with: 1) Memory-base RPC for preparation and 2) direct write for commit.
+    >
+    > Q: Do read/write instructions in RDMA can know if the execution fails or succeed?
 
 - [Facebook’s Tectonic Filesystem: Efficiency from Exascale](https://www.usenix.org/system/files/fast21-pan.pdf)
+
+- [Crail: Unification of Temporary Storage in the NodeKernel Architecture](https://www.usenix.org/system/files/atc19-stuedi.pdf) [Crail webcite](https://craillabs.github.io/)
 
 ## Kernel extension
 
