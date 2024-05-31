@@ -43,7 +43,9 @@ title: Paper Reading Summary
 
 # Security
 
+## Hardware security
 
+- [WESEE: Using Malicious #VC Interrupts to Break AMD SEV-SNP](https://n.ethz.ch/~sshivaji/publications/wesee_oakland24.pdf)
 
 # Architecture
 
