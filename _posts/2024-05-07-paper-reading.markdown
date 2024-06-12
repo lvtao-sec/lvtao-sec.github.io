@@ -5,6 +5,12 @@ title: Paper Reading Summary
 
 # Operating System
 
+# Concurrency
+
+- [Laws of Order: Expensive Synchronization in Concurrent Algorithms Cannot be Eliminated](https://dl.acm.org/doi/pdf/10.1145/1925844.1926442)
+
+# File systems
+
 ## Local File Systems
 
 - [Split-Level I/O Scheduling](https://dl.acm.org/doi/pdf/10.1145/2815400.2815421), SOSP'16
@@ -46,6 +52,7 @@ title: Paper Reading Summary
 ## Hardware security
 
 - [WESEE: Using Malicious #VC Interrupts to Break AMD SEV-SNP](https://n.ethz.ch/~sshivaji/publications/wesee_oakland24.pdf)
+- DMAAUTH: A Lightweight Pointer Integrity-based Secure Architecture to Defeat DMA Attacks
 
 # Architecture
 
