@@ -49,6 +49,10 @@ title: Paper Reading Summary
 
 # Security
 
+## Kernel security
+
+- [EPF: Evil Packet Filter](https://vatlidak.github.io/resources/epf_usenixatc23.pdf)
+
 ## Hardware security
 
 - [WESEE: Using Malicious #VC Interrupts to Break AMD SEV-SNP](https://n.ethz.ch/~sshivaji/publications/wesee_oakland24.pdf)
