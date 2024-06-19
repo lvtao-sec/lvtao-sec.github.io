@@ -9,6 +9,8 @@ title: Paper Reading Summary
 
 - [Laws of Order: Expensive Synchronization in Concurrent Algorithms Cannot be Eliminated](https://dl.acm.org/doi/pdf/10.1145/1925844.1926442)
 
+- [Effective Concurrency Testing for Distributed Systems](Effective Concurrency Testing for Distributed Systems)
+
 # File systems
 
 ## Local File Systems
