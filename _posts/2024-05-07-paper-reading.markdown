@@ -10,6 +10,10 @@ title: Paper Reading Summary
 - [Laws of Order: Expensive Synchronization in Concurrent Algorithms Cannot be Eliminated](https://dl.acm.org/doi/pdf/10.1145/1925844.1926442)
 
 - [Effective Concurrency Testing for Distributed Systems](https://www.cs.columbia.edu/~junfeng/papers/morpheus-asplos20.pdf)
+> Model checking is notoriously for state explosion in concurrency testing even coupled with partial order reduction.
+> So, random work is proposed to randomly  explore interleavings.
+> However, it still exploring some useless orderings.
+> This paper utilizes thread conflicts in historical testing executions to predict future's conflict and thus avoid useless exploration. It looks still a kind of order reduction.
 
 # File systems
 
