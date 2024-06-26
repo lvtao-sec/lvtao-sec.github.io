@@ -21,7 +21,7 @@ title: Paper Reading Summary
 
 - [Split-Level I/O Scheduling](https://dl.acm.org/doi/pdf/10.1145/2815400.2815421), SOSP'16
 
-    > [Split-Level I/O Scheduling](https://dl.acm.org/doi/pdf/10.1145/2815400.2815421), SOSP'16
+- [IOFlow: A Software-Defined Storage Architecture](https://dl.acm.org/doi/pdf/10.1145/2517349.2522723)
 
 
 ## Distributed file systems
@@ -43,6 +43,10 @@ title: Paper Reading Summary
     > Q: Do read/write instructions in RDMA can know if the execution fails or succeed?
 
 - [Facebook’s Tectonic Filesystem: Efficiency from Exascale](https://www.usenix.org/system/files/fast21-pan.pdf)
+> Three targeted issues:
+> - Scaling to exabyte-scale -> hash-partition metadata instead of range-partitioning to avoid hotspots. Why?
+> - Providing performance isolation between tenants -> Isolation among groups instead of aplications.
+> - Enabling tenant-specific optimization -> Runtime file system configuration instead of pre-configuration 
 
 - [Crail: Unification of Temporary Storage in the NodeKernel Architecture](https://www.usenix.org/system/files/atc19-stuedi.pdf) [Crail webcite](https://craillabs.github.io/)
 
