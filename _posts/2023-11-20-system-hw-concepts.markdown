@@ -88,21 +88,55 @@ title: System and Hardware Concepts
 
 # File systems / Storage
 
-- [A Casefor RedundantArrays of InexpensiveDisks (RAID)](https://www.cs.cmu.edu/~garth/RAIDpaper/Patterson88.pdf)
+## I/O stack
 
-http://www.ssdfans.com/?p=8210
-https://blog.csdn.net/fengxiaocheng/article/details/103258791
-https://www.cnblogs.com/zhangsanlisi411/articles/16751546.html
+Question: when issuing a file operation, how could it know if the data is already in page cache?
+Is it searching buffer headers?
 
-- Storage organization types
+### BIO layer
+
+The mapping between page cache and block devices are blocks.
+The size of blocks varies between the size of sectors (512B) and the size of pages (4KB).
+To build the such a mapping, buffer head is proposed, which records the information of each block,
+including which device and block it persists to and which page it is cached.
+
+BIO -> IO scheduler -> combined request -> request queue (sequentially queued requests)
+
+When flushing page cache to block devices or reading block devices to page cache,
+a BIO struct is generated,
+which builds the connection between a set of non-continous pages and a set of continous sectors in the block devices.
+
+```c
+struct bio {
+    ...
+    struct bvec_iter    bi_iter;
+    unsigned short      bi_vcnt;
+    struct bio_vec      *bi_io_vec;
+    ...    
+}
+
+struct bio_vec {
+    struct page     *bv_page;
+    unsigned int    bv_len;
+    unsigned int    bv_offset;
+};
+
+struct bvec_iter {
+    sector_t        bi_sector;  /* device address in 512 byte sectors */
+    unsigned int    bi_size;    /* residual I/O count */
+    unsigned int    bi_idx;     /* current index into bvl_vec */
+    unsigned int    bi_bvec_done;   /* number of bytes completed in current bvec */
+}
+```
+
+
+## Storage organization types
+
     - Block storage : Store data in fixed-length blocks without any other informations.
     - Object storage : Metadata and data of objects are organized in a flat view. It's more suitable for scenarios that there are no hierarchy relationship among data.
     - File storage : Files, as units, are organized in a hierarchy.
-- NAS: network-attached storage
 
-- PCIe
-
-- Storage/Memory Hierarchy
+## Storage device types
 
     | Hierarchy         | Storage Technique                  | Bus   | Interface to CPUs    | Speed |
     | ----------------- | ---------------------------------- | ----- | -------------------- | ----- |
@@ -119,6 +153,14 @@ https://www.cnblogs.com/zhangsanlisi411/articles/16751546.html
     - *Advanced Host Controller Interface (AHCI)
     - Reference
       - [Modern Storage Hierarchy: From NAND SSD to *3D XPoint* (*Optane*) PM](https://www.josehu.com/technical/2021/01/01/ssd-to-optane.html)
+
+## Raid, device mapper
+
+- [A Casefor RedundantArrays of InexpensiveDisks (RAID)](https://www.cs.cmu.edu/~garth/RAIDpaper/Patterson88.pdf)
+
+http://www.ssdfans.com/?p=8210
+https://blog.csdn.net/fengxiaocheng/article/details/103258791
+https://www.cnblogs.com/zhangsanlisi411/articles/16751546.html
 
 # Linux kernel / OS kernel
 

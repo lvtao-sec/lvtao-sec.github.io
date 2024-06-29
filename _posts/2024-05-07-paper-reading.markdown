@@ -3,23 +3,52 @@ layout: default
 title: Paper Reading Summary
 ---
 
-# Operating system
+# Operating System
 
-## File systems
+# Concurrency
+
+- [Laws of Order: Expensive Synchronization in Concurrent Algorithms Cannot be Eliminated](https://dl.acm.org/doi/pdf/10.1145/1925844.1926442)
+
+- [Effective Concurrency Testing for Distributed Systems](https://www.cs.columbia.edu/~junfeng/papers/morpheus-asplos20.pdf)
+> Model checking is notoriously for state explosion in concurrency testing even coupled with partial order reduction.
+> So, random work is proposed to randomly  explore interleavings.
+> However, it still exploring some useless orderings.
+> This paper utilizes thread conflicts in historical testing executions to predict future's conflict and thus avoid useless exploration. It looks still a kind of order reduction.
+
+# File systems
+
+## Local File Systems
 
 - [Split-Level I/O Scheduling](https://dl.acm.org/doi/pdf/10.1145/2815400.2815421), SOSP'16
 
-    > [Split-Level I/O Scheduling](https://dl.acm.org/doi/pdf/10.1145/2815400.2815421), SOSP'16
+- [IOFlow: A Software-Defined Storage Architecture](https://dl.acm.org/doi/pdf/10.1145/2517349.2522723)
+
+
+## Distributed file systems
 
 - [Octopus: an RDMA-enabled Distributed Persistent Memory File System](http://storage.cs.tsinghua.edu.cn/papers/atc17-octopus.pdf/)
 
     > The bottleneck of distributed file systems:
     > - SSD + ethernet: slow device latency (ms)
-    > - PM + RDMA (InfiniBand): ?? why does GlusterMEM have low throughput ??
-
-    > Is single-node server or mutiple? Consistency? Fault tolerance (replicas)? Comparison with CephFS?
+    > - PM + RDMA (InfiniBand): Many data duplications among layers.
+    >
+    > - Data plane:
+    >   - Directly access servers' PMs from clients to reduce data duplication times. 
+    >   - Concurrent access are protected by locking with GCC-provided primitives at servers
+    >   and unlocking at clients through RDMA atomic instructions.
+    >
+    > - Metadata plane:
+    >   - two-phase commit with: 1) Memory-base RPC for preparation and 2) direct write for commit.
+    >
+    > Q: Do read/write instructions in RDMA can know if the execution fails or succeed?
 
 - [Facebook’s Tectonic Filesystem: Efficiency from Exascale](https://www.usenix.org/system/files/fast21-pan.pdf)
+> Three targeted issues:
+> - Scaling to exabyte-scale -> hash-partition metadata instead of range-partitioning to avoid hotspots. Why?
+> - Providing performance isolation between tenants -> Isolation among groups instead of aplications.
+> - Enabling tenant-specific optimization -> Runtime file system configuration instead of pre-configuration 
+
+- [Crail: Unification of Temporary Storage in the NodeKernel Architecture](https://www.usenix.org/system/files/atc19-stuedi.pdf) [Crail webcite](https://craillabs.github.io/)
 
 ## Kernel extension
 
@@ -30,7 +59,14 @@ title: Paper Reading Summary
 
 # Security
 
+## Kernel security
 
+- [EPF: Evil Packet Filter](https://vatlidak.github.io/resources/epf_usenixatc23.pdf)
+
+## Hardware security
+
+- [WESEE: Using Malicious #VC Interrupts to Break AMD SEV-SNP](https://n.ethz.ch/~sshivaji/publications/wesee_oakland24.pdf)
+- DMAAUTH: A Lightweight Pointer Integrity-based Secure Architecture to Defeat DMA Attacks
 
 # Architecture
 
