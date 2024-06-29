@@ -135,6 +135,11 @@ https://www.cnblogs.com/zhangsanlisi411/articles/16751546.html
 - Book: Hardware and Software Support for Virtualization
 - [Core slicing: closing the gap between leaky confidential VMs and bare-metal cloud](https://www.usenix.org/conference/osdi23/presentation/zhou-ziqiao)
 
+- Constant and invariant CPU
+    - Variant TSC: The first generation of TSC, the TSC increments could be impacted by CPU frequency changes.
+    - Constant TSC: The TSC increments at a constant rate, even CPU frequency get changed. But the TSC could be stopped when CPU run into deep C-state.
+    - Invariant TSC: The invariant TSC will run at a constant rate in all ACPI P-, C-, and T-states. 
+
 ## [How is rdtsc implemented in KVM guest?](https://www.yunweiku.com/thread-155834-1-1.html)
 
 - Constant TSC: ensures that the duration of each clock tick is uniform and supports the use of the TSC as a wall clock timer even if the processor core changes frequency. however it does change on C state.
