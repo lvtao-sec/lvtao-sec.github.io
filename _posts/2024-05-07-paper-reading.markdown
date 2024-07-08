@@ -50,6 +50,10 @@ title: Paper Reading Summary
 
 - [Crail: Unification of Temporary Storage in the NodeKernel Architecture](https://www.usenix.org/system/files/atc19-stuedi.pdf) [Crail webcite](https://craillabs.github.io/)
 
+## FPGA file system
+
+Reconfigurable Virtual Memory for FPGA-Driven I/O
+
 ## Kernel extension
 
 - [VINO: Dealing With Disaster: Surviving Misbehaved Kernel Extensions](https://www.usenix.org/conference/osdi-96/dealing-disaster-surviving-misbehaved-kernel-extensions)
@@ -129,3 +133,5 @@ title: Paper Reading Summary
 - Thesios: Synthesizing Accurate Counterfactual I/O Traces from I/O Samples
 
 - Everywhere All at Once: Co-Location Attacks on Public Cloud FaaS
+
+- A Verified Confidential Computing as a Service Framework for Privacy Preservation
