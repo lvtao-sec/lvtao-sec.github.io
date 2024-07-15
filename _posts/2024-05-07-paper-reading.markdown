@@ -26,6 +26,8 @@ title: Paper Reading Summary
 
 ## Distributed file systems
 
+- [Empowering Azure Storage with RDMA](https://www.usenix.org/system/files/nsdi23-bai.pdf)
+
 - [Octopus: an RDMA-enabled Distributed Persistent Memory File System](http://storage.cs.tsinghua.edu.cn/papers/atc17-octopus.pdf/)
 
     > The bottleneck of distributed file systems:
