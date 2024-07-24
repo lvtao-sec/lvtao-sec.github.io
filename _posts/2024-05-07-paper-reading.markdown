@@ -137,3 +137,7 @@ Reconfigurable Virtual Memory for FPGA-Driven I/O
 - Everywhere All at Once: Co-Location Attacks on Public Cloud FaaS
 
 - A Verified Confidential Computing as a Service Framework for Privacy Preservation
+
+# Book
+
+- [Software foundation](https://softwarefoundations.cis.upenn.edu/)
