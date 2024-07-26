@@ -138,6 +138,10 @@ Reconfigurable Virtual Memory for FPGA-Driven I/O
 
 - A Verified Confidential Computing as a Service Framework for Privacy Preservation
 
+# CXL
+
+- [Rcmp: Reconstructing RDMA-Based Memory Disaggregation via CXL](https://dl.acm.org/doi/pdf/10.1145/3634916)
+
 # Book
 
 - [Software foundation](https://softwarefoundations.cis.upenn.edu/)
