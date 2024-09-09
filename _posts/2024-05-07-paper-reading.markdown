@@ -26,6 +26,8 @@ title: Paper Reading Summary
 
 ## Distributed file systems
 
+- [Empowering Azure Storage with RDMA](https://www.usenix.org/system/files/nsdi23-bai.pdf)
+
 - [Octopus: an RDMA-enabled Distributed Persistent Memory File System](http://storage.cs.tsinghua.edu.cn/papers/atc17-octopus.pdf/)
 
     > The bottleneck of distributed file systems:
@@ -49,6 +51,10 @@ title: Paper Reading Summary
 > - Enabling tenant-specific optimization -> Runtime file system configuration instead of pre-configuration 
 
 - [Crail: Unification of Temporary Storage in the NodeKernel Architecture](https://www.usenix.org/system/files/atc19-stuedi.pdf) [Crail webcite](https://craillabs.github.io/)
+
+## FPGA file system
+
+Reconfigurable Virtual Memory for FPGA-Driven I/O
 
 ## Kernel extension
 
@@ -129,3 +135,13 @@ title: Paper Reading Summary
 - Thesios: Synthesizing Accurate Counterfactual I/O Traces from I/O Samples
 
 - Everywhere All at Once: Co-Location Attacks on Public Cloud FaaS
+
+- A Verified Confidential Computing as a Service Framework for Privacy Preservation
+
+# CXL
+
+- [Rcmp: Reconstructing RDMA-Based Memory Disaggregation via CXL](https://dl.acm.org/doi/pdf/10.1145/3634916)
+
+# Book
+
+- [Software foundation](https://softwarefoundations.cis.upenn.edu/)
