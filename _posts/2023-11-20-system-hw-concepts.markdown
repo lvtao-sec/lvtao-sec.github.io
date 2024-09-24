@@ -39,6 +39,10 @@ title: System and Hardware Concepts
     
     [^2] https://fauna.com/blog/serializability-vs-strict-serializability-the-dirty-secret-of-database-isolation-levels
 
+- [Difference between concurrency and parallism](https://fastapi.tiangolo.com/async/#concurrency-and-burgers)
+    - Parallism: Multiple tasks that are synchronous inside and run the same computing logic. It is used in CPU-bound applications, like complex math processing. (A program is CPU bound if it would go faster if the CPU were faster)
+    - Concurrency: Multiple different tasks run asynchronously and synchronize sometimes. It is used for IO-bound applications. (A program is I/O bound if it would go faster if the I/O subsystem was faster.)
+
 # Formal methods
 
 - [Lectures of model checking](https://web.stanford.edu/class/cs357/lecture12.pdf)
