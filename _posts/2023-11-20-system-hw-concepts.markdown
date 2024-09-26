@@ -299,6 +299,12 @@ https://www.intel.com/content/www/us/en/developer/articles/technical/memory-in-d
   - [4] [A Formal Model of Linux-Kernel Memory Ordering](https://mirrors.edge.kernel.org/pub/linux/kernel/people/paulmck/LWNLinuxMM/)
   - [5] [A Primer on Memory Consistency and Cache Coherence](https://course.ece.cmu.edu/~ece847c/S15/lib/exe/fetch.php?media=part2_2_sorin12.pdf#MC_Sorin-2_Ch02.indd%3Achapter%202)
 
+## Cache Indentification
+
+- TLB, Data/instruction cache
+- VIPT: 
+- ...
+
 # Performance
 
 - Latency:
