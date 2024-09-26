@@ -297,6 +297,7 @@ https://www.intel.com/content/www/us/en/developer/articles/technical/memory-in-d
   - [2] [x86-TSO: A Rigorous and Usable Programmer’s Model for x86 Multiprocessors](https://www.cl.cam.ac.uk/~pes20/weakmemory/cacm.pdf)
   - [3] [A Tutorial Introduction to the ARM and POWER Relaxed Memory Models](https://www.cl.cam.ac.uk/~pes20/ppc-supplemental/test7.pdf)
   - [4] [A Formal Model of Linux-Kernel Memory Ordering](https://mirrors.edge.kernel.org/pub/linux/kernel/people/paulmck/LWNLinuxMM/)
+  - [5] [A Primer on Memory Consistency and Cache Coherence](https://course.ece.cmu.edu/~ece847c/S15/lib/exe/fetch.php?media=part2_2_sorin12.pdf#MC_Sorin-2_Ch02.indd%3Achapter%202)
 
 # Performance
 
