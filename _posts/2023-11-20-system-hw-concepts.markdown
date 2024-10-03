@@ -317,6 +317,52 @@ https://www.intel.com/content/www/us/en/developer/articles/technical/memory-in-d
 
 - Relation among different level of caches: inclusive, non-inclusive, exclusive
 
+# Keyword Volatile
+
+`Volatile` is used to tell compiler that do not do any optimization on this variable. The optimizations can be any, for example:
+
+- Removing Dead Stores
+```c
+int x = 0;
+x = 5;  // This write may be optimized out
+```
+
+- Caching in Registers
+```c
+int flag = 0;
+
+void updateFlag() {
+    flag = 1;  // The compiler may keep this in a register
+}
+
+void checkFlag() {
+    while (flag == 0) {  // `flag` might be optimized out as always `0`
+        // Loop forever because the write to `flag` may not be visible here
+    }
+}
+```
+
+- Write Coalescing and Reordering
+```c
+int status = 0;
+
+void setStatus() {
+    status = 1;
+    status = 2;  // The compiler may combine these two writes into just `status = 2`
+}
+```
+
+- Loop Invariant Code Motion
+```c
+int dataReady = 0;
+
+void pollStatus() {
+    for (int i = 0; i < 1000; i++) {
+        dataReady = 1;  // The compiler might move this out of the loop or eliminate it
+    }
+}
+```
+
 # Performance
 
 - Latency:
