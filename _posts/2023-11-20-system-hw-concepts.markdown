@@ -305,6 +305,18 @@ https://www.intel.com/content/www/us/en/developer/articles/technical/memory-in-d
 - VIPT: 
 - ...
 
+## Cache coherence
+
+- MSI: Modified (writable), Share (readable), Invalid
+- MESI: Execlusive. The difference with the M state is that the cache block is writable (and readable) but not yet written. Once the cache line is modified, it enters M state. What's the benefit of having E state? No write back if the cache line is exclusively owned by some but not get modified. what's SharedLine?
+- MOSI: ??
+
+- Snooping:
+
+- Directory:
+
+- Relation among different level of caches: inclusive, non-inclusive, exclusive
+
 # Performance
 
 - Latency:
