@@ -370,3 +370,23 @@ void pollStatus() {
 - Bandwidth:
 
 - Cache: https://brooker.co.za/blog/2023/12/15/sieve.html
+
+
+# Database
+
+## ACID of transactions
+
+- Atomicity: Either none or all of operations in one transaction is done.
+- Consistency: The finally achieved state after executing all operations in a transaction should be valid. If only ensuring atomicity, it is possible that the finally achieved state is invalid even none or all is guaranteed. Because transaction logic (i.e., code) itself might be wrong, which leads to invalid states. The `consistency` is defined by concrete application logic.
+- Isolation: No intermidiate states are visible. Atomicity and consistency does not guarantee that intermediate states are invisible.
+- Durablility: States are peristed.
+
+## Transactional memory
+
+Transactional memory only gurantees atomicity, isolation, and partial consistency. Partial consistency means that it only ensures the memory level consistency instead of application-level logic consistency (like the credit cannot be minus).
+
+## Ways to ensure transactions
+
+- Undo-logging: Copy the old data to the log, write the new data to the dst memory, and then commit. Once faults happens in the middle, it can undo the modification to the dst memory by copying the old data in the log, that is undo. 
+- Redo-logging: Copy the new data to the log and then the dst memory, finally commit. Once faults happen, just copy the new data from the log to the dst memory, that is redo.
+- Copy-on-Write (CoW): Write the old data to a new memory, and then apply the modifications and finally commit, that is pointing to the new memory.
