@@ -11,6 +11,10 @@ title: Academic Writing
 # Paper writing guidelines
 
 - [An Evaluation of the Ninth SOSP Submissions-or-How (and How Not) to Write a Good Systems Paper](https://www.usenix.org/conference/osdi12/guidelines-authors)
+    > Concisely describe what the reader should learn from the paper?
+    > A good paper doesn't just describe, it explains.
+    > Less forward references
+
 - [The Science of Scientific Writing](https://www.usenix.org/sites/default/files/gopen_and_swan_science_of_scientific_writing.pdf)
 
 # TODOs for Cameray Ready
