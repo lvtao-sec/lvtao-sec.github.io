@@ -16,18 +16,34 @@ git submodule update --init --recursive
 ```bash
 # Add the files you want to commit
 git add .
+
 # -s for adding the signed-off-by
 # To adding correct name and emails in the singed-off-by,
 # we have to set them by:
 # git config --global user.name "name"
 # git config --global user.email "email"
 # They are stored in the ~/.gitconfig file.
+
+# Note: commit patch and selftest in two seperate commits
 git commit -s -m "Message"
+
 # format-patch generates an patch named "XXX.patch" for sending
 git format-patch -1
+
 # Modify the patch file accordingly,
 # for example, add the description of this patch or bug between
 # "Subject" and "Signed-off-by"
+# Adding fix tag, like: Fixes: da70d184a8c3(12characters) ("xxx")
+
+# Write the cover letter
+git branch --edit-description
+
+# Generate patches
+# git format-patch -2 --cover-letter --output-directory patches/
+
+# Fill the title in the cover letter
+
+# Run scripts/checkpatch.pl on each patch file to ensure their style is correct
 
 # Configure the ~/.gitconfig file for sending this patch like below:
 # [sendemail]
