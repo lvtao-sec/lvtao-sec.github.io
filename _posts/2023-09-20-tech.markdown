@@ -166,3 +166,14 @@ rmmod nbd
 
 - [Mount qcow2 as a network block device](https://gist.github.com/shamil/62935d9b456a6f9877b5)
 - [Resize a qcow2 on Linux](https://linuxconfig.org/how-to-resize-a-qcow2-disk-image-on-linux)
+
+# Update glibc in debian
+
+```bash
+sudo nano /etc/apt/sources.list.d/snapshot.list
+# select a proper version with specified time
+deb [check-valid-until=no] https://snapshot.debian.org/archive/debian/20221101T000000Z/ testing main
+
+sudo apt update
+sudo apt install libc6/testing
+```
