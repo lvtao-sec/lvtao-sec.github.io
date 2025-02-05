@@ -390,3 +390,37 @@ Transactional memory only gurantees atomicity, isolation, and partial consistenc
 - Undo-logging: Copy the old data to the log, write the new data to the dst memory, and then commit. Once faults happens in the middle, it can undo the modification to the dst memory by copying the old data in the log, that is undo. 
 - Redo-logging: Copy the new data to the log and then the dst memory, finally commit. Once faults happen, just copy the new data from the log to the dst memory, that is redo.
 - Copy-on-Write (CoW): Write the old data to a new memory, and then apply the modifications and finally commit, that is pointing to the new memory.
+
+
+# Data structure and algorithom
+
+## Big O notation and time complexity
+
+
+
+## Data structures
+
+### Red-black tree
+
+
+### Merkle tree
+
+### ...
+
+# Performance numbers
+
+- 1 KB of RAM or cache = 1,024 bytes
+- 1 KB of disk space = 1,000 bytes
+- 1 Kbps of bandwidth = 1,000 bits/second
+- 1 GHz (CPU) = 1,000 MHz
+- 1 CPU cycle (N Ghz -> cycle time = 1/N), generally 2-5Ghz and thus 0.2-0.5 ns per cycle.
+- Register-register ADD/OR/etc. < 1 CPU cycle
+- Register write ~1 cycle
+- Correctly / incorrectly predicted "if" branch = 1 cycle / 10-20 cycles
+- L1 (NKB each for L1i and L1d, can be different) / L2 (KB or even MB) / L3 (8-64MB) / main RAM read = 3-4 cycles / 10-12 cycles / 50-70 cycles / 100-150 cycles
+- TLB hit = 0.5 - 1 cycle
+- CAS = 15-30 cycles
+- C function direct / indirect call = 10-20 cycles / 20-50 cycles
+- Kernel syscall = 1,000 - 1,500 cycles
+- Thread context switch (direct costs) = 2,000 cycles
+- On NUMA, different-socket mem hierarchy access is 3 - 10x that of non-NUMA
