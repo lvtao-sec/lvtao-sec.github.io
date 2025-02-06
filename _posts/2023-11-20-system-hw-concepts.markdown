@@ -336,8 +336,8 @@ void updateFlag() {
 }
 
 void checkFlag() {
-    while (flag == 0) {  // `flag` might be optimized out as always `0`
-        // Loop forever because the write to `flag` may not be visible here
+    while (flag == 0) {  // 'flag' might be optimized out as always 0
+        // Loop forever because the write to flag may not be visible here
     }
 }
 ```
@@ -348,7 +348,7 @@ int status = 0;
 
 void setStatus() {
     status = 1;
-    status = 2;  // The compiler may combine these two writes into just `status = 2`
+    status = 2;  // The compiler may combine these two writes into just status = 2
 }
 ```
 
