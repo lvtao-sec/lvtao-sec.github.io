@@ -424,3 +424,7 @@ Transactional memory only gurantees atomicity, isolation, and partial consistenc
 - Kernel syscall = 1,000 - 1,500 cycles
 - Thread context switch (direct costs) = 2,000 cycles
 - On NUMA, different-socket mem hierarchy access is 3 - 10x that of non-NUMA
+
+# System numbers
+
+- Cache line size: 32 or 64 bytes
