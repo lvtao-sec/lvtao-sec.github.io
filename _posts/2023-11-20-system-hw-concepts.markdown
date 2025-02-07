@@ -322,6 +322,7 @@ https://www.intel.com/content/www/us/en/developer/articles/technical/memory-in-d
 `Volatile` is used to tell compiler that do not do any optimization on this variable. The optimizations can be any, for example:
 
 - Removing Dead Stores
+
 ```c
 int x = 0;
 x = 5;  // This write may be optimized out
