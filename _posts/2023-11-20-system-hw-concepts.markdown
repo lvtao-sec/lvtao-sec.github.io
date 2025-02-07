@@ -328,13 +328,12 @@ x = 5;  // This write may be optimized out
 ```
 
 - Caching in Registers
+
 ```c
 int flag = 0;
-
 void updateFlag() {
     flag = 1;  // The compiler may keep this in a register
 }
-
 void checkFlag() {
     while (flag == 0) {  // 'flag' might be optimized out as always 0
         // Loop forever because the write to flag may not be visible here
@@ -343,6 +342,7 @@ void checkFlag() {
 ```
 
 - Write Coalescing and Reordering
+
 ```c
 int status = 0;
 
@@ -353,6 +353,7 @@ void setStatus() {
 ```
 
 - Loop Invariant Code Motion
+
 ```c
 int dataReady = 0;
 
