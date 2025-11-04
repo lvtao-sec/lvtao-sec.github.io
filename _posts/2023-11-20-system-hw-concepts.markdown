@@ -430,3 +430,8 @@ Transactional memory only gurantees atomicity, isolation, and partial consistenc
 # System numbers
 
 - Cache line size: 32 or 64 bytes
+
+
+# Database
+
+- [Pointer swizzling](https://www.cs.emory.edu/~cheung/Courses/554/Syllabus/2-disks/pointer-swizzling.html)
